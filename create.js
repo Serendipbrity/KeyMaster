@@ -39,8 +39,10 @@ modalSave.addEventListener("click", function () {
     // name or description of key combo
     const nameInput = document.querySelector(".name").value;
     // save the key combo and name to local storage
-    localStorage.setItem(nameInput, JSON.stringify(keyCombo));
-    console.log(localStorage.getItem(nameInput));
+  localStorage.setItem(nameInput, JSON.stringify(keyCombo));
+   // Get nameInput from localStorage
+  //  const nameInputValue = JSON.parse(localStorage.getItem(nameInput));
+  //   console.log(nameInputValue);
 });
 
 // --------- clear button ----------------------------
@@ -55,3 +57,9 @@ clearButton.addEventListener("click", function () {
   document.addEventListener("keydown", handleKeyDown);
 });
 // ---------------------------------------------------
+
+const startButton = document.querySelector(".start-game-button");
+startButton.addEventListener("click", function () {
+  // Redirect to the game page
+  window.location.href = "game.html";
+});
