@@ -34,6 +34,21 @@ header {
     width: 40%;
 }
 
+.name {
+    width: 100%;
+    display: flex;
+    margin: 5% auto;
+    padding: 1%;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+}
+
 .container {
     display: flex;
     margin: auto;
