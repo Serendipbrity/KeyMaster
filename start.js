@@ -1,8 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
+    var editor = CodeMirror.fromTextArea(document.querySelector('.game-card'), {
+        lineNumbers: true,
+        mode: "htmlmixed",
+        theme: "default"
+    });
+
+    editor.setValue(`<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is a simple HTML template. Feel free to edit it.</p>
+</body>
+</html>`);
+});
+
   const endButton = document.querySelector(".end-game-button");
   const nextButton = document.querySelector(".next-button");
   // textarea that displays the key names
-  const gameCard = document.querySelector(".game-card");
+  const gameCard = document.querySelector(".name-of-key");
 
   // To keep track of which key is currently shown
   let currentKeyIndex = 0;
@@ -57,24 +75,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Add event listener for the end button
-    endButton.addEventListener("click", function () {
+  endButton.addEventListener("click", function () {
     // Redirect to index.html (home)
     window.location.href = "index.html";
   });
 
   // Add event listener for the next button
-    nextButton.addEventListener("click", function () {
-      // Move to the next key
-        currentKeyIndex += 1; 
-        // if the current key index is greater than or equal to the length of the keys array
-        if (currentKeyIndex >= keys.length) {
-        // Loop back to the first key 
-      currentKeyIndex = 0; 
-        }
-        // Display the next key
-    displayKeyByKeyIndex(currentKeyIndex); 
+  nextButton.addEventListener("click", function () {
+    // Move to the next key
+    currentKeyIndex += 1;
+    // if the current key index is greater than or equal to the length of the keys array
+    if (currentKeyIndex >= keys.length) {
+      // Loop back to the first key
+      currentKeyIndex = 0;
+    }
+    // Display the next key
+    displayKeyByKeyIndex(currentKeyIndex);
   });
 
-    // Initialize and display the first key upon DOM content loaded
-  initializeAndDisplayFirstKey(); 
-});
+  // Initialize and display the first key upon DOM content loaded
+initializeAndDisplayFirstKey();
+  
+
