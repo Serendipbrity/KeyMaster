@@ -95,8 +95,10 @@ header {
 .disclaimer {
     display: flex;
     justify-content: center;
-    margin-top: 2%;
     color: grey;
+    text-align: center;
+    margin: 2% auto 0;
+    font-size: .9em;
 }
 
 .end-game-button {
@@ -136,6 +138,7 @@ iframe {
     border-radius: 5px;
     padding: 3%;
     white-space: pre-wrap;
+    justify-items: center;
 }
 
 

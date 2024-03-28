@@ -1,21 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var editor = CodeMirror.fromTextArea(document.querySelector('.game-card'), {
-        lineNumbers: true,
-        mode: "htmlmixed",
-        theme: "default"
-    });
 
-    editor.setValue(`<!DOCTYPE html>
-<html>
-<head>
-    <title>Sample Page</title>
-</head>
-<body>
-    <h1>Hello, World!</h1>
-    <p>This is a simple HTML template. Feel free to edit it.</p>
-</body>
-</html>`);
-});
 
   const endButton = document.querySelector(".end-game-button");
   const nextButton = document.querySelector(".next-button");
@@ -68,8 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
         attempts.shift();
       }
       // Convert both arrays to JSON strings for comparison and check if they match
-      if (JSON.stringify(attempts) === JSON.stringify(correctKey)) {
-        window.alert("correct!");
+        if (JSON.stringify(attempts) === JSON.stringify(correctKey)) {
+            setTimeout(function () {
+                window.alert("correct!")
+            }, 100);
       }
     });
   }
@@ -80,8 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "index.html";
   });
 
-  // Add event listener for the next button
-  nextButton.addEventListener("click", function () {
+// Function to move to the next key and display it
+function moveToNextKey() {
     // Move to the next key
     currentKeyIndex += 1;
     // if the current key index is greater than or equal to the length of the keys array
@@ -91,9 +77,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // Display the next key
     displayKeyByKeyIndex(currentKeyIndex);
+  }
+  
+  // Add click event listener for the next button
+  nextButton.addEventListener("click", function () {
+    moveToNextKey();
+  });
+  
+  // Add keydown event listener to the document
+  document.addEventListener("keydown", function(event) {
+    // Check if the Enter key was pressed
+    if (event.key === "Enter") {
+      // Prevent the default action to avoid triggering any forms or other elements
+      event.preventDefault();
+      // Call the function to move to the next key
+      moveToNextKey();
+    }
   });
 
   // Initialize and display the first key upon DOM content loaded
 initializeAndDisplayFirstKey();
-  
+});
 
