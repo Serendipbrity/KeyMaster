@@ -16,18 +16,26 @@ header {
 }
 
 .click-here {
-    display: block;
-    width: 50%;
+    display: flex;
+    width: 35%;
     padding: 1%;
+    justify-content: center;
     margin: 5% auto;
     border-radius: 5px;
     border: none;
-    background-color: rgba(51, 51, 51,.9);
-    color: white;
+    color: rgba(51, 51, 51,.9);
+    text-decoration: none;
 }
 
 .click-here:hover {
-    background-color: rgba(51, 51, 51, 1);
+    cursor: pointer;
+}
+
+.click-here:focus::after {
+    content: "Begin Typing!";
+    display: block;
+    justify-content: center;
+    margin-left: 10%;
 }
 
 .shortcut-label{
@@ -70,7 +78,7 @@ header {
     color: white;
 }
 
-.clear:hover, .save:hover {
+.clear:hover, .save:hover, .start-game-button:hover, .next-button:hover {
     background-color: rgba(51, 51, 51, 1);
 }
 
