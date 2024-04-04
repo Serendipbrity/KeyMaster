@@ -35,8 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // when clicking the tell me button
     tellMe.addEventListener("click", function () {
       const answer = document.querySelector(".answer");
-      // show the answer
-      answer.textContent = correctKey;
+       // Join the array elements into a string without commas
+  const textWithoutCommas = correctKey.join(' ');
+  
+  answer.textContent = textWithoutCommas;
       // Set a timer to clear the textContent after 3 seconds (3000 milliseconds)
       setTimeout(() => {
         answer.textContent = "";
