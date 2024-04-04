@@ -3,7 +3,10 @@
 const presetKeys = {
     copy: ["Meta", "c"],
     paste: ["Meta", "v"],
-    spotlight:["Meta", " "]
+    "highlight left":["Meta","Shift","ArrowLeft"],
+    spotlight: ["Meta", " "],
+    "open terminal": ["Control", "`"],
+    "duplicate line down (replaces copy and paste)":["Alt", "Shift", "ArrowDown"],
 
 }
 
@@ -59,3 +62,4 @@ document.addEventListener("keydown", function(event) {
         nextButton.click(); // Programmatically click the "Next" button
     }
 });
+
