@@ -1,0 +1,11 @@
+body {
+    display: flex;
+    justify-content:center;
+}
+
+body div{
+    margin-top: 20%;
+    font-style: italic;
+    font-size: 60px;
+    text-align: center;
+}

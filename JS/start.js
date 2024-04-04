@@ -1,6 +1,6 @@
+// this file is for the game page
+
 document.addEventListener("DOMContentLoaded", function () {
-
-
   const endButton = document.querySelector(".end-game-button");
   const nextButton = document.querySelector(".next-button");
   // textarea that displays the key names
@@ -30,44 +30,59 @@ document.addEventListener("DOMContentLoaded", function () {
     const key = keys[index];
     //  get the key name
     const correctKey = JSON.parse(localStorage.getItem(key));
+    // tell me button
+    const tellMe = document.querySelector(".tell-me");
+    // when clicking the tell me button
+    tellMe.addEventListener("click", function () {
+      const answer = document.querySelector(".answer");
+      // show the answer
+      answer.textContent = correctKey;
+      // Set a timer to clear the textContent after 3 seconds (3000 milliseconds)
+  setTimeout(() => {
+    answer.textContent = '';
+  }, 3000); // 3000 milliseconds = 3 seconds
+    });
     //  display the key name
     gameCard.textContent = key;
 
-    //   create an empty array to hold users key press attempts
-    const attempts = [];
-    //   listen for keydown events
-    document.addEventListener("keydown", function (event) {
-      // each single key press
-      const attempt = event.key;
-      //   if there is a key press
-      if (attempt) {
-        //   add the key press to the attempts array
-        attempts.push(attempt);
-        console.log(attempts);
-      }
+    function attempts() {
+      //   create an empty array to hold users key press attempts
+      const userAttempts = [];
+      //   listen for keydown events
+      document.addEventListener("keydown", function (event) {
+        // each single key press
+        const attempt = event.key;
+        //   if there is a key press
+        if (attempt) {
+          //   add the key press to the userAttempts array
+          userAttempts.push(attempt);
+          // console.log(userAttempts);
+        }
 
-      // Ensure attempts are only as long as correctKey for comparison
-      if (attempts.length > correctKey.length) {
-        // Remove the oldest key if attempts are longer than correctKey
-        attempts.shift();
-      }
-      // Convert both arrays to JSON strings for comparison and check if they match
-        if (JSON.stringify(attempts) === JSON.stringify(correctKey)) {
-            setTimeout(function () {
-                window.alert("correct!")
-            }, 100);
-      }
-    });
+        // Ensure userAttempts are only as long as correctKey for comparison
+        if (userAttempts.length > correctKey.length) {
+          // Remove the oldest key if userAttempts are longer than correctKey
+          userAttempts.shift();
+        }
+        // Convert both arrays to JSON strings for comparison and check if they match
+        if (JSON.stringify(userAttempts) === JSON.stringify(correctKey)) {
+          setTimeout(function () {
+            window.alert("correct!");
+          }, 100);
+        }
+      });
+    }
+    attempts();
   }
 
   // Add event listener for the end button
   endButton.addEventListener("click", function () {
     // Redirect to index.html (home)
-    window.location.href = "index.html";
+    window.location.href = "../HTML/build.html";
   });
 
-// Function to move to the next key and display it
-function moveToNextKey() {
+  // Function to move to the next key and display it
+  function moveToNextKey() {
     // Move to the next key
     currentKeyIndex += 1;
     // if the current key index is greater than or equal to the length of the keys array
@@ -78,14 +93,14 @@ function moveToNextKey() {
     // Display the next key
     displayKeyByKeyIndex(currentKeyIndex);
   }
-  
+
   // Add click event listener for the next button
   nextButton.addEventListener("click", function () {
     moveToNextKey();
   });
-  
+
   // Add keydown event listener to the document
-  document.addEventListener("keydown", function(event) {
+  document.addEventListener("keydown", function (event) {
     // Check if the Enter key was pressed
     if (event.key === "Enter") {
       // Prevent the default action to avoid triggering any forms or other elements
@@ -96,6 +111,5 @@ function moveToNextKey() {
   });
 
   // Initialize and display the first key upon DOM content loaded
-initializeAndDisplayFirstKey();
+  initializeAndDisplayFirstKey();
 });
-

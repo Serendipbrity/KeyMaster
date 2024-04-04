@@ -1,3 +1,5 @@
+// This file is for creating new keys (currently on the homepage)
+
 // create empty array to hold one key combo
 let keyCombo = [];
 
@@ -7,9 +9,8 @@ const box = document.querySelector(".box");
 const modalBody = document.querySelector(".modal-body");
 const saveButton = document.querySelector(".save");
 
-function handleKeyDown(event) {
+function recordedKeyPreses(event) {
   console.log(`Key pressed: ${event.key}`);
-  console.log(`Key code: ${event.code}`);
   // clear default input info
   box.textContent = "";
   // if there is a key event
@@ -18,17 +19,17 @@ function handleKeyDown(event) {
     keyCombo.push(event.key);
     // display the key event in the box
     box.textContent = keyCombo;
-    console.log(`Key combo: ${keyCombo}`);
+    console.log(`Recorded: ${keyCombo}`);
   }
 }
 // listen for any keys pressed on the entire document
-document.addEventListener("keydown", handleKeyDown);
+document.addEventListener("keydown", recordedKeyPreses);
 
 // when the save button is clicked
 saveButton.addEventListener("click", function () {
   // display the key combo in the modal
   modalBody.textContent = keyCombo;
-  document.removeEventListener("keydown", handleKeyDown);
+  document.removeEventListener("keydown", recordedKeyPreses);
 });
 
 //  modal save button
@@ -40,9 +41,6 @@ modalSave.addEventListener("click", function () {
     const nameInput = document.querySelector(".name").value;
     // save the key combo and name to local storage
   localStorage.setItem(nameInput, JSON.stringify(keyCombo));
-   // Get nameInput from localStorage
-  //  const nameInputValue = JSON.parse(localStorage.getItem(nameInput));
-  //   console.log(nameInputValue);
 });
 
 // --------- clear button ----------------------------
@@ -54,12 +52,13 @@ clearButton.addEventListener("click", function () {
   // reset the box text
   box.textContent = "Keys will auto appeaer here";
   // add back the keydown event listener
-  document.addEventListener("keydown", handleKeyDown);
+  document.addEventListener("keydown", recordedKeyPreses);
 });
 // ---------------------------------------------------
 
 const startButton = document.querySelector(".start-game-button");
+// when clicking the start button
 startButton.addEventListener("click", function () {
   // Redirect to the game page
-  window.location.href = "game.html";
+  window.location.href = "../HTML/game.html";
 });

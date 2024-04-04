@@ -15,6 +15,25 @@ header {
     color: white;
 }
 
+.tell-me-container {
+    display: flex;
+}
+
+.tell-me {
+    margin: 2%;
+}
+
+.answer {
+    margin: 2%;
+    letter-spacing: 1px;
+    font-size: 1.3em;
+    color: blue;
+    font-weight: 700;
+    justify-content: center;
+    display: inline-block;
+    position: relative;
+}
+
 .click-here {
     display: flex;
     width: 35%;
@@ -67,7 +86,7 @@ header {
     justify-content: space-evenly;
 }
 
-.clear, .save {
+button {
     display: block;
     width: 20%;
     padding: 1%;
