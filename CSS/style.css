@@ -109,7 +109,7 @@ button {
  
 }
 
-.name-of-key {
+.name-of-key, .preset-key-name {
     display: flex;
     justify-content: center;
     margin: 5% auto 0;
