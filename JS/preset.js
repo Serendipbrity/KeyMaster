@@ -7,7 +7,6 @@ const presetKeys = {
     spotlight: ["Meta", " "],
     "open terminal": ["Control", "`"],
     "duplicate line down (replaces copy and paste)":["Alt", "Shift", "ArrowDown"],
-
 }
 
 let currentKeyIndex = 0; // Keep track of the current key being shown
@@ -15,7 +14,8 @@ let currentKeyIndex = 0; // Keep track of the current key being shown
 // Function to display the current key name
 function showKeyNames() {
     const keyName = document.querySelector(".preset-key-name");
-    const keys = Object.keys(presetKeys); // Get the keys as an array
+    // Get the keys as an array
+    const keys = Object.keys(presetKeys); 
   
     if (keys.length > 0 && currentKeyIndex < keys.length) {
         keyName.textContent = keys[currentKeyIndex]; // Show the current key

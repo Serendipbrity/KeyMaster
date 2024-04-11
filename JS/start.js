@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add event listener for the end button
   endButton.addEventListener("click", function () {
     // Redirect to index.html (home)
-    window.location.href = "../HTML/home.html";
+    window.location.href = "../index.html";
   });
 
   // Function to move to the next key and display it
