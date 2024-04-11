@@ -60,5 +60,5 @@ const startButton = document.querySelector(".start-game-button");
 // when clicking the start button
 startButton.addEventListener("click", function () {
   // Redirect to the game page
-  window.location.href = "/HTML/game.html";
+  window.location.href = "HTML/game.html";
 });

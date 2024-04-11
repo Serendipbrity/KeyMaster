@@ -6,11 +6,11 @@ const presetButton = document.querySelector(".play-preset-button");
 
 
 buildButton.addEventListener("click", function () {
-    // Redirect to index.html (home)
+    // Redirect to build.html (home)
     window.location.href = "HTML/build.html";
 });
 
 presetButton.addEventListener("click", function () {
-    // Redirect to index.html (home)
+    // Redirect to preset.html (home)
     window.location.href = "HTML/preset.html";
 })
